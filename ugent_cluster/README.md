@@ -13,9 +13,13 @@ Submit an interactive job (`-I`) to compile and test the code (here one node wit
 qsub -I -l nodes=1:ppn=12
 ```
 
-Note that make support parallel compilation. In this case make should be run as
+Note that make supports parallel compilation. In this case make should be run as
 ```
 make -j 12
+```
+Test can also be run in parallel
+```
+make test ARGS=-j12
 ```
 
 Compile the code on $VSC_DATA, as $VSC_HOME has too little space to support compilation of all libraries and tests.
@@ -52,17 +56,17 @@ export INSTALL_PREFIX=~/local
 Clone the dependencies and build, making sure that you use the intel compilers:
 ```
 git clone https://github.com/GQCG/cpputil.git --branch develop --single-branch
-(cd cpputil && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} && make -j 12 && make test && make install)
+(cd cpputil && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} && make -j 12 && make test ARGS=-j12 && make install)
 
 git clone https://github.com/GQCG/numopt.git --branch develop --recurse-submodules
-(cd numopt && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DUSE_MKL=ON && make -j 12 && make test && make install)
+(cd numopt && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DUSE_MKL=ON && make -j 12 && make test ARGS=-j12 && make install)
 ```
 
 
 Finally, clone and install gqcp
 ```
 git clone https://github.com/GQCG/gqcp.git --branch develop --recurse-submodules
-(cd gqcp && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DUSE_MKL=ON && make -j 12 && make test && make install)
+(cd gqcp && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DUSE_MKL=ON && make -j 12 && make test ARGS=-j12 && make install)
 ```
 
 ## Running the software (either interactively or through batch submission)
