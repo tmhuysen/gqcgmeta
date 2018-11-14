@@ -69,6 +69,9 @@ git clone https://github.com/GQCG/gqcp.git --branch develop --recurse-submodules
 (cd gqcp && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DUSE_MKL=ON && make -j 12 && make test ARGS=-j12 && make install)
 ```
 
+Be careful with the $j 12$ options, as the compilation can fail with intel toolchains if compilation is done in parallel.
+
+
 ## Running the software (either interactively or through batch submission)
 
 Load in the required modules
