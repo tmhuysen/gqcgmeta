@@ -20,6 +20,11 @@ INSTALL_PREFIX=${VSC_DATA}/apps/${VSC_INSTITUTE_CLUSTER}/gqcg/local
 
 rm -rf ${SOURCE_PREFIX} && mkdir -p ${SOURCE_PREFIX} && cd ${SOURCE_PREFIX}
 
+# 0. Google benchmark
+rm -rf benchmark
+git clone https://github.com/tmhuysen/benchmark.git
+(cd benchmark && git clone https://github.com/google/googletest.git && mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} && make -j ${PPN} && make install)
+
 # 1. cpputil
 rm -rf cpputil
 git clone https://github.com/GQCG/cpputil.git --branch develop
@@ -30,7 +35,7 @@ rm -rf numopt
 git clone https://github.com/GQCG/numopt.git --branch develop --recurse-submodules
 (cd numopt && rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DUSE_MKL=ON && make -j ${PPN} && make test ARGS=-j${PPN} && make install)
 
-# 3.
+# 3. gqcp
 rm -rf gqcp
 git clone https://github.com/GQCG/gqcp.git --branch develop
-(cd gqcp && rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DLIBINTROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a -DUSE_MKL=ON && make -j ${PPN} && make test ARGS=-j${PPN} && make install)
+(cd gqcp && rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DLIBINTROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a -DUSE_MKL=ON -DBUILD_BENCHMARKS=ON && make -j ${PPN} && make test ARGS=-j${PPN} && make install)
