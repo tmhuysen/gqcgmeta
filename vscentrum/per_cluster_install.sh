@@ -4,6 +4,7 @@ PPN=3
 
 #PBS -l nodes=1:ppn=${PPN}
 #PBS -N gqcg_compilation_on_${VSC_INSTITUTE_CLUSTER}
+#PBS -l mem=12gb
 
 module purge
 module load intel/2018a
@@ -32,4 +33,4 @@ git clone https://github.com/GQCG/numopt.git --branch develop --recurse-submodul
 # 3.
 rm -rf gqcp
 git clone https://github.com/GQCG/gqcp.git --branch develop
-(cd gqcp && rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DLIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a -DUSE_MKL=ON && make -j ${PPN} && make test ARGS=-j${PPN} && make install)
+(cd gqcp && rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DLIBINTROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a -DUSE_MKL=ON && make -j ${PPN} && make test ARGS=-j${PPN} && make install)
