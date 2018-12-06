@@ -22,3 +22,6 @@ This will download all relevant GQCG codes and will launch compilation submissio
 
 Note that the default checked out branch is develop. If needed, you can adjust the checked out branches in the `per_cluster_install.sh'.
 
+## Run instructions
+
+Load all modules mentioned in load_modules.sh. Then run the desired executable.
