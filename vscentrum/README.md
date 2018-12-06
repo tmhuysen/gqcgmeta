@@ -18,5 +18,7 @@ chmod u+x install.sh
 ./install.sh
 ```
 
-This will launch submissions on all supported clusters. After these jobs have finished, you can find the compiled code at `${VSC_DATA}/apps/${CLUSTER}/gqcg/local'.
+This will download all relevant GQCG codes and will launch compilation submissions on all supported clusters. After these jobs have finished, you can find the compiled code at `${VSC_DATA}/apps/${CLUSTER}/gqcg/local'.
+
+Note that the default checked out branch is develop. If needed, you can adjust the checked out branches in the `per_cluster_install.sh'.
 
