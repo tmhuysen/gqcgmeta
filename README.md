@@ -1,6 +1,6 @@
 
-# gqcpmeta
+# gqcgmeta
 
-This repository contains machine-specific information on how to use compile and use the [gqcp](https://github.com/GQCG/gqcp) library.
+Check into this repository the files you use to manage GQCG software that aren't suitable for distribution in the main repository, whether for reasons of machine-specificity or rare use or otherwise. Also files that other developers should be aware of so 'auto-procedures' can be traced.
 
-Consult the README.md files in the specific subdirectories for more information.
+See README.md files in subdirectories for specific notes.
