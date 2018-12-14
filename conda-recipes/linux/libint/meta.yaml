@@ -1,0 +1,78 @@
+
+package:
+    name: libint
+    version: 2.3.1
+source:
+    fn: libint-2.3.1.tgz
+    url: https://github.com/evaleev/libint/releases/download/v2.3.1/libint-2.3.1.tgz
+build:
+    number: '1'
+    run_exports:
+        - libint
+    string: hf484d3e_1
+requirements:
+    build:
+        - autoconf 2.69 pl526hebd4dad_5
+        - gxx_linux-64 7.3.0 h553295d_3
+        - perl 5.26.2 h14c3975_0
+        - zlib 1.2.11 ha838bed_2
+        - m4 1.4.18 h4e445db_0
+        - gcc_impl_linux-64 7.3.0 habb00fd_1
+        - gcc_linux-64 7.3.0 h553295d_3
+        - libgcc-ng 8.2.0 hdf63c60_1
+        - libtool 2.4.6 h7b6447c_5
+        - ccache 3.3.2 0
+        - binutils_impl_linux-64 2.31.1 h6176602_1
+        - libstdcxx-ng 8.2.0 hdf63c60_1
+        - gxx_impl_linux-64 7.3.0 hdf63c60_1
+        - binutils_linux-64 2.31.1 h6176602_3
+    host:
+        - sqlite 3.25.2 h7b6447c_0
+        - eigen 3.3.5 hfd86e86_0
+        - blas 1.0 mkl
+        - mkl_random 1.0.1 py37h4414c95_1
+        - xz 5.2.4 h14c3975_4
+        - pip 18.1 py37_0
+        - libstdcxx-ng 8.2.0 hdf63c60_1
+        - py-boost 1.67.0 py37h04863e7_4
+        - bzip2 1.0.6 h14c3975_5
+        - mkl 2019.0 118
+        - mkl_fft 1.0.6 py37h7dd41cf_0
+        - python 3.7.1 h0371630_3
+        - tk 8.6.8 hbc83047_0
+        - libgfortran-ng 7.3.0 hdf63c60_0
+        - gmp 6.1.2 h6c8ec71_1
+        - boost 1.67.0 py37_4
+        - libboost 1.67.0 h46d08c1_4
+        - wheel 0.32.2 py37_0
+        - ncurses 6.1 hf484d3e_0
+        - numpy-base 1.15.4 py37h81de0dd_0
+        - ca-certificates 2018.03.07 0
+        - libgcc-ng 8.2.0 hdf63c60_1
+        - libffi 3.2.1 hd88cf55_4
+        - readline 7.0 h7b6447c_5
+        - certifi 2018.10.15 py37_0
+        - libedit 3.1.20170329 h6b74fdf_2
+        - numpy 1.15.4 py37h1d66e8a_0
+        - zlib 1.2.11 ha838bed_2
+        - openssl 1.1.1 h7b6447c_0
+        - intel-openmp 2019.0 118
+        - icu 58.2 h9c2bf20_1
+        - setuptools 40.5.0 py37_0
+    run:
+        - libstdcxx-ng >=7.3.0
+        - libgcc-ng >=7.3.0
+        - gmp >=6.1.2
+test:
+    commands:
+        - conda inspect linkages libint
+about:
+    home: https://github.com/evaleev/libint
+    license: LGPL-3.0+
+    license_family: LGPL
+    license_file: LICENSE
+    license_url: https://opensource.org/licenses/LGPL-3.0+
+    summary: two-body molecular integrals over Gaussian functions library
+extra:
+    copy_test_source_files: true
+    final: true
