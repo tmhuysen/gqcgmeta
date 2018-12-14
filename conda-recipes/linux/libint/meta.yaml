@@ -6,10 +6,10 @@ source:
     fn: libint-2.3.1.tgz
     url: https://github.com/evaleev/libint/releases/download/v2.3.1/libint-2.3.1.tgz
 build:
-    number: '1'
+    number: '0'
     run_exports:
         - libint
-    string: hf484d3e_1
+    string: '0'
 requirements:
     build:
         - autoconf 
