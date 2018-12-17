@@ -6,10 +6,11 @@
 
 echo "Init compilation on victini."
 module swap cluster/victini 2> /dev/null
-qsub per_cluster_install.sh
+qsub per_cluster_install.sh -l nodes=1:ppn=18 -l mem=44gb
 
 echo "Init compilation on delcatty."
 module swap cluster/delcatty 2> /dev/null
-qsub per_cluster_install.sh
+qsub per_cluster_install.sh -l nodes=1:ppn=8 -l mem=30gb
+
 
 
