@@ -10,7 +10,6 @@ module load Boost/1.66.0-intel-2018a
 
 # Configure packages
 export EIGEN3_ROOT=${EBROOTEIGEN}/include
-export LIBINTROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a/
 
 case ${VSC_INSTITUTE_CLUSTER} in
     "delcatty" )

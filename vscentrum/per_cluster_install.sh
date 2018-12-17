@@ -1,11 +1,23 @@
 #!/usr/bin/env bash
 
-PPN=3
+case ${VSC_INSTITUTE_CLUSTER} in
+    "delcatty" )
+	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
+	PPN=8
+	;;
+    "victini" )
+        LIBINT_ROOT=/apps/gent/CO7/skylake-ib/software/Libint/2.4.2-intel-2018a
+	PPN=18
+	;;
+    * )
+	echo "ERROR: Only the delcatty and victini clusters are supported."
+	exit 1
+	;;
+esac
 
 #PBS -l nodes=1:ppn=${PPN}
-#PBS -l walltime=04:00:00
+#PBS -l walltime=02:00:00
 #PBS -N gqcg_compilation_on_${VSC_INSTITUTE_CLUSTER}
-#PBS -l mem=12gb
 
 module purge
 module load intel/2018a
@@ -15,23 +27,9 @@ module load Eigen/3.3.4
 module load Boost/1.66.0-intel-2018a
 
 export EIGEN3_ROOT=$EBROOTEIGEN/include
-
-case ${VSC_INSTITUTE_CLUSTER} in
-    "delcatty" )
-	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
-	;;
-    "victini" )
-        LIBINT_ROOT=/apps/gent/CO7/skylake-ib/software/Libint/2.4.2-intel-2018a
-	;;
-    * )
-	echo "ERROR: Only the delcatty and victini clusters are supported."
-	exit 1
-	;;
-esac
-
 export LIBINT_DATA_PATH=${LIBINT_ROOT}/share/libint/2.4.2/basis
 
-SOURCE_PREFIX=${VSC_DATA}/apps/${VSC_INSTITUTE_CLUSTER}/gqcg
+SOURCE_PREFIX=${VSC_SCRATCH}/gqcg
 INSTALL_PREFIX=${VSC_DATA}/apps/${VSC_INSTITUTE_CLUSTER}/gqcg/local
 
 rm -rf ${SOURCE_PREFIX} && mkdir -p ${SOURCE_PREFIX} && cd ${SOURCE_PREFIX}
