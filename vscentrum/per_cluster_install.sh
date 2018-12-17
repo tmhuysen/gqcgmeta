@@ -4,10 +4,12 @@ case ${VSC_INSTITUTE_CLUSTER} in
     "delcatty" )
 	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
 	PPN=8
+	MEM=30gb
 	;;
     "victini" )
         LIBINT_ROOT=/apps/gent/CO7/skylake-ib/software/Libint/2.4.2-intel-2018a
 	PPN=18
+	MEM=44gb
 	;;
     * )
 	echo "ERROR: Only the delcatty and victini clusters are supported."
@@ -17,6 +19,7 @@ esac
 
 #PBS -l nodes=1:ppn=${PPN}
 #PBS -l walltime=02:00:00
+#PBS -l mem=${MEM}
 #PBS -N gqcg_compilation_on_${VSC_INSTITUTE_CLUSTER}
 
 module purge
