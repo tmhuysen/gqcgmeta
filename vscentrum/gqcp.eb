@@ -1,3 +1,4 @@
+easyblock = 'CMakeMake'
 name = 'gqcp'
 version = '0.1.0'
 homepage = 'https://github.com/GQCG'
@@ -17,7 +18,7 @@ sources = [{
 
 dependencies = [
     ('Libint', '2.4.2', '', ('intel', '2018a')),
-    ('Eigen', '3.3.4'),
+    ('Eigen', '3.3.4', '', ''),
     ('Boost', '1.66.0', '', ('intel', '2018a')),
 ]
 builddependencies = [
