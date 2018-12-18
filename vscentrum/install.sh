@@ -12,6 +12,10 @@ echo "Init compilation on swalot."
 module swap cluster/golett 2> /dev/null
 qsub per_cluster_install.sh -l nodes=1:ppn=10 -l mem=30gb
 
+echo "Init compilation on phanpy."
+module swap cluster/phanpy 2> /dev/null
+qsub per_cluster_install.sh -l nodes=1:ppn=12 -l mem=30gb
+
 #echo "Init compilation on victini."
 #module swap cluster/victini 2> /dev/null
 #qsub per_cluster_install.sh -l nodes=1:ppn=9 -l mem=30gb
