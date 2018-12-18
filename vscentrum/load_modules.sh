@@ -15,6 +15,9 @@ case ${VSC_INSTITUTE_CLUSTER} in
     "golett" )
 	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
 	;;
+    "swalot" )
+	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
+	;;	
     "delcatty" )
 	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
 	;;
