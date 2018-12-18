@@ -12,6 +12,9 @@ module load Boost/1.66.0-intel-2018a
 export EIGEN3_ROOT=${EBROOTEIGEN}/include
 
 case ${VSC_INSTITUTE_CLUSTER} in
+    "golett" )
+	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
+	;;
     "delcatty" )
 	LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
 	;;
@@ -19,7 +22,7 @@ case ${VSC_INSTITUTE_CLUSTER} in
         LIBINT_ROOT=/apps/gent/CO7/skylake-ib/software/Libint/2.4.2-intel-2018a
 	;;
     * )
-	echo "ERROR: Only the delcatty and victini clusters are supported."
+	echo "ERROR: Only the golett, delcatty and victini clusters are supported."
 	exit 1
 	;;
 esac
