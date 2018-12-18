@@ -18,18 +18,23 @@ case ${VSC_INSTITUTE_CLUSTER} in
 	PPN=10
 	MEM=30gb
 	;;
-    "delcatty" )
-	export LIBINT_ROOT=/apps/gent/CO7/sandybridge/software/Libint/2.4.2-intel-2018a
-	PPN=8
+    "phanpy" )
+	export LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
+	PPN=12
 	MEM=30gb
 	;;
-    "victini" )
-        export LIBINT_ROOT=/apps/gent/CO7/skylake-ib/software/Libint/2.4.2-intel-2018a
-	PPN=18
-	MEM=30gb
-	;;
+    # "delcatty" )
+    # 	export LIBINT_ROOT=/apps/gent/CO7/sandybridge/software/Libint/2.4.2-intel-2018a
+    # 	PPN=8
+    # 	MEM=30gb
+    # 	;;
+    # "victini" )
+    #     export LIBINT_ROOT=/apps/gent/CO7/skylake-ib/software/Libint/2.4.2-intel-2018a
+    # 	PPN=18
+    # 	MEM=30gb
+    # 	;;
     * )
-	echo "ERROR: Only the golett, swalot, delcatty and victini clusters are supported."
+	echo "ERROR: Only the golett, swalot and phanpy clusters are supported."
 	exit 1
 	;;
 esac
