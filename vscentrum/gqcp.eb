@@ -17,8 +17,8 @@ sources = [{
 }]
 
 dependencies = [
+    ('Eigen', '3.3.4'),
     ('Libint', '2.4.2', '', ('intel', '2018a')),
-    ('Eigen', '3.3.4', '', ''),
     ('Boost', '1.66.0', '', ('intel', '2018a')),
 ]
 builddependencies = [
