@@ -17,12 +17,12 @@ sources = [{
 }]
 
 dependencies = [
-    ('Eigen', '3.3.4'),
+    ('Eigen', '3.3.4', '', ('', '')),
     ('Libint', '2.4.2', '', ('intel', '2018a')),
     ('Boost', '1.66.0', '', ('intel', '2018a')),
 ]
 builddependencies = [
-    ('CMake', '3.10.3', '', ('GCC', '6.4.0')),
+    ('CMake', '3.10.3', '', ('GCCcore', '6.4.0')),
 ]
 
 modextravars = {
