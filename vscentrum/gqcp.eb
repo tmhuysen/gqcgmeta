@@ -17,7 +17,7 @@ sources = [{
 }]
 
 dependencies = [
-    ('Eigen', '3.3.4', '', ('', '')),
+    ('Eigen', '3.3.4', '', True),
     ('Libint', '2.4.2', '', ('intel', '2018a')),
     ('Boost', '1.66.0', '', ('intel', '2018a')),
 ]
@@ -31,6 +31,8 @@ modextravars = {
 }
 
 configopts = '-DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DLIBINTROOT=${EBROOTLIBINT} -DUSE_MKL=ON'
+
+runtest = 'ARGS="-j 4" test'
 
 moduleclass = 'chem'
 
