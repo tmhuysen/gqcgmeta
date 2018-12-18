@@ -25,8 +25,8 @@ builddependencies = [
 ]
 
 modextravars = {
-    'EIGEN3_ROOT' = '${EBROOTEIGEN}/include',
-    'LIBINT_DATA_PATH' = '${EBROOTLIBINT}/share/libint/2.4.2/basis',
+    'EIGEN3_ROOT' : '${EBROOTEIGEN}/include',
+    'LIBINT_DATA_PATH' : '${EBROOTLIBINT}/share/libint/2.4.2/basis',
 }
 
 configopts = '-DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DLIBINTROOT=${EBROOTLIBINT} -DUSE_MKL=ON'
