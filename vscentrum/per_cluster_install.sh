@@ -18,7 +18,7 @@ case ${VSC_INSTITUTE_CLUSTER} in
 	PPN=10
 	MEM=30gb
     "delcatty" )
-	export LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
+	export LIBINT_ROOT=/apps/gent/CO7/sandybridge/software/Libint/2.4.2-intel-2018a
 	PPN=8
 	MEM=30gb
 	;;
