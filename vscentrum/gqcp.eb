@@ -1,0 +1,35 @@
+name = 'gqcp'
+version = '0.1.0'
+homepage = 'https://github.com/GQCG'
+description = """The Ghent Quantum Chemistry Package."""
+
+toolchain = {'name': 'intel', 'version' : '2018a'}
+
+sources = [{
+    'filename': 'gqcp-0_1_0.tar.gz',
+    'git_config': {
+        'url': 'https://github.com/GQCG',
+        'repo_name': 'gqcp',
+	'tag' : 'develop',
+        'recursive': True,
+    },
+}]
+
+dependencies = [
+    ('Libint', '2.4.2', '', ('intel', '2018a')),
+    ('Eigen', '3.3.4'),
+    ('Boost', '1.66.0', '', ('intel', '2018a')),
+]
+builddependencies = [
+    ('CMake', '3.10.3', '', ('GCC', '6.4.0')),
+]
+
+modextravars = {
+    'EIGEN3_ROOT' = '${EBROOTEIGEN}/include',
+    'LIBINT_DATA_PATH' = '${EBROOTLIBINT}/share/libint/2.4.2/basis',
+}
+
+configopts = '-DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DLIBINTROOT=${EBROOTLIBINT} -DUSE_MKL=ON'
+
+moduleclass = 'chem'
+

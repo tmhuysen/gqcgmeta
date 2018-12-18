@@ -9,17 +9,14 @@ module load Boost/1.66.0-intel-2018a
 
 case ${VSC_INSTITUTE_CLUSTER} in
     "golett" )
-	export LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
 	PPN=12
 	MEM=30gb
 	;;
     "swalot" )
-	export LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
 	PPN=10
 	MEM=30gb
 	;;
     "phanpy" )
-	export LIBINT_ROOT=/apps/gent/CO7/haswell-ib/software/Libint/2.4.2-intel-2018a
 	PPN=12
 	MEM=30gb
 	;;
@@ -40,7 +37,7 @@ case ${VSC_INSTITUTE_CLUSTER} in
 esac
 
 export EIGEN3_ROOT=$EBROOTEIGEN/include
-export LIBINT_DATA_PATH=${LIBINT_ROOT}/share/libint/2.4.2/basis
+export LIBINT_DATA_PATH=${EBROOTLIBINT}/share/libint/2.4.2/basis
 
 SOURCE_PREFIX=${VSC_SCRATCH}/apps/${VSC_INSTITUTE_CLUSTER}/gqcg
 INSTALL_PREFIX=${VSC_DATA}/apps/${VSC_INSTITUTE_CLUSTER}/gqcg
@@ -62,4 +59,4 @@ rm -rf ${SOURCE_PREFIX} && mkdir -p ${SOURCE_PREFIX} && cd ${SOURCE_PREFIX}
 
 # 3. gqcp
 git clone https://github.com/GQCG/gqcp.git --branch develop --recurse-submodules
-(cd gqcp && rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DLIBINTROOT=${LIBINT_ROOT} -DUSE_MKL=ON && make VERBOSE=1 -j ${PPN} && make test ARGS=-j${PPN} && make install)
+(cd gqcp && rm -rf build && mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} -DLIBINTROOT=${EBROOTLIBINT} -DUSE_MKL=ON && make VERBOSE=1 -j ${PPN} && make test ARGS=-j${PPN} && make install)
