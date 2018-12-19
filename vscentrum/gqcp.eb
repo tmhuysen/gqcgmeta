@@ -34,7 +34,7 @@ configopts = '-DCMAKE_C_COMPILER=icc -DCMAKE_CXX_COMPILER=icpc -DLIBINTROOT=${EB
 
 runtest = 'ARGS="-j 4" test'
 
-parellel = 1
+parallel = 1
 separate_build_dir = True
 
 moduleclass = 'chem'
